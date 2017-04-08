@@ -1,4 +1,4 @@
-name: bikecounter
+name: edinburgh-bike-counter
 dependencies:
 - anaconda-client=1.6.2=py36_0
 - appnope=0.1.0=py36_0
