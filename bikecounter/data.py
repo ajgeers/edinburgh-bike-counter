@@ -1,7 +1,6 @@
 import os
 import re
-from urllib.request import urlopen
-from urllib.request import urlretrieve
+import requests
 
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -24,8 +23,8 @@ def get_edinburgh_bike_counter_data(datapath='data',
         Edinburgh bike counter data
 
     """
-    html_page = urlopen('http://www.edinburghopendata.info/dataset/bike-counter-data-set-cluster')
-    soup = BeautifulSoup(html_page, 'html5lib')
+    r = requests.get('https://data.edinburghopendata.info/dataset/bike-counter-data-set-cluster')
+    soup = BeautifulSoup(r.content, 'html.parser')
 
     dfs = []
     for a in soup.find_all('a', attrs={'href': re.compile("\.csv$")}):
@@ -35,7 +34,9 @@ def get_edinburgh_bike_counter_data(datapath='data',
         filename = os.path.basename(url)
         filepath = os.path.join(datapath, filename)
         if force_download or not os.path.exists(filepath):
-            urlretrieve(url, filepath)
+            r = requests.get(url)
+            with open(filepath, 'wb') as f:
+                f.write(r.content)
 
         # Read data and set datetime as index
         df = pd.read_csv(filepath,
