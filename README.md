@@ -13,8 +13,8 @@ Inspired by [this analysis](https://github.com/jakevdp/JupyterWorkflow) of bike 
 ## Python environment
 
 ```sh
-conda env create -n edinburgh_bike_counter -f environment.yml
-source activate edinburgh_bike_counter
+conda env create -n edinburgh-bike-counter -f environment.yml
+conda activate edinburgh-bike-counter
 ```
 
 
