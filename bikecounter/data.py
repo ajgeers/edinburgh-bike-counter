@@ -10,6 +10,15 @@ def get_edinburgh_bike_counter_data(datapath='data',
                                     force_download=False):
     """Download and cache the Edinburgh bike counter dataset
 
+    Data was provided by The City of Edinburgh Council under a UK Open
+    Government Licence (OGL). They note that the "dataset includes
+    bike counts collected on a hourly-basis between 2007 and 2016,
+    from 48 off-road and on-road counters installed in Edinburgh. Data
+    sets have 2 or 4 channel counters (due to the width of the road),
+    recording the direction of travel, such as north-bound,
+    south-bound, east-bound or west-bound. Counts are on an hourly
+    basis."
+
     Parameters
     ----------
     datapath : string (optional)
