@@ -39,13 +39,12 @@ def get_edinburgh_bike_counter_data(datapath='data',
                 f.write(r.content)
 
         # Read data and set datetime as index
-        df = pd.read_csv(filepath,
-                         index_col='date')
-        try:
+        df = pd.read_csv(filepath, index_col='date')
+        try:  # specify format to speed up datetime parsing
             df.index = pd.to_datetime(df.index, format='%d/%m/%Y')
-        except TypeError:
+        except TypeError:  # infer format
             df.index = pd.to_datetime(df.index)
-        df.index = df.index + pd.to_timedelta(df['time'], unit='h')
+        df.index += pd.to_timedelta(df['time'], unit='h')
 
         # Sum all channels to get single value for each bike counter
         bike_counter_name = os.path.splitext(filename)[0]
