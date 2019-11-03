@@ -56,15 +56,15 @@ def get_edinburgh_bike_counter_data(datapath='data',
         df.index += pd.to_timedelta(df['time'], unit='h')
 
         # Only keep the total number of bikes across all channels
-        bike_counter_name = os.path.splitext(filename)[0]
+        counter = os.path.splitext(filename)[0]
         df = pd.DataFrame(df.filter(regex='channel', axis=1).sum(axis=1),
-                          columns=[bike_counter_name])
+                          columns=[counter])
 
         # Remove days on which no bikes were counted
-        dfr = df.resample('D').sum()
-        active_days = dfr.loc[dfr[bike_counter_name] > 0].index
+        daily = df.resample('D').sum()
+        operating_days = daily.loc[daily[counter] > 0].index
         df = df[df.index.to_series().dt.date.isin(
-                    active_days.to_series().dt.date)]
+                    operating_days.to_series().dt.date)]
 
         dfs.append(df)
 
