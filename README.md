@@ -7,7 +7,7 @@ Author: Arjan Geers (ajgeers@gmail.com)
 
 Analysis of Edinburgh bike counter data.
 
-Inspired by [this analysis](https://github.com/jakevdp/JupyterWorkflow) of bike counter data from the Fremont Bridge in Seattle.
+Inspired by [this analysis](https://jakevdp.github.io/blog/2015/07/23/learning-seattles-work-habits-from-bicycle-counts/) of Seattle bike counter data. Another take on the Edinburgh dataset can be found [here](https://github.com/JustinMatters/EdinburghBikeData).
 
 
 ## Python environment
