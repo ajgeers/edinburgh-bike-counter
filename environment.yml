@@ -9,3 +9,4 @@ dependencies:
   - pip=19.3.*
   - python=3.7.*
   - requests=2.22.*
+  - scikit-learn=0.21.*
