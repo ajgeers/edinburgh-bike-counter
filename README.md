@@ -1,6 +1,6 @@
 # Edinburgh bike counter
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ajgeers/edinburgh-bike-counter/master)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ajgeers/edinburgh-bike-counter/master?filepath=data_analysis.ipynb)
 
 Author: Arjan Geers (ajgeers@gmail.com)
 
