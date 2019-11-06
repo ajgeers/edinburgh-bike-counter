@@ -1,3 +1,4 @@
+import gzip
 import os
 import re
 import requests
@@ -41,10 +42,10 @@ def get_edinburgh_bike_counter_data(datapath='data',
         # Download data
         url = a.get('href')
         filename = os.path.basename(url)
-        filepath = os.path.join(datapath, filename)
+        filepath = os.path.join(datapath, filename + '.gz')
         if force_download or not os.path.exists(filepath):
             r = requests.get(url)
-            with open(filepath, 'wb') as f:
+            with gzip.open(filepath, 'wb') as f:
                 f.write(r.content)
 
         # Read data and set datetime as index
